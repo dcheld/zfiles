@@ -1,6 +1,6 @@
 alias _='sudo -E'
 alias '..'='cd ..'
-alias cat=bat
+alias cat='bat'
 alias ls='exa --icons'
 alias la='exa --icons -la'
 
