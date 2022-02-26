@@ -5,8 +5,7 @@ alias ls='exa --icons'
 alias la='exa --icons -la'
 
 # Podman
-alias docker='sudo podman'
-alias docker-compose='sudo podman-compose'
+alias docker='podman'
 
 # Git
 alias g=git

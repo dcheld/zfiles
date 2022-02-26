@@ -11,3 +11,8 @@ source "$sourceDir/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$sourceDir/history.zsh"
 source "$sourceDir/functions.zsh"
 source /opt/asdf-vm/asdf.sh
+
+autoload -Uz age
+autoload -Uz zargs
+autoload -Uz zcalc
+autoload -Uz zmv
