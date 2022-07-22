@@ -2,6 +2,7 @@ alias _='sudo -E'
 alias '..'='cd ..'
 alias cat='bat'
 alias ls='exa --icons'
+alias ll='exa --icons -alF'
 alias la='exa --icons -la'
 
 # Podman
