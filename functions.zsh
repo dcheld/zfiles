@@ -2,7 +2,7 @@ function dbUp(){
     name='vivobd'
 
     if [[ ! $(sudo podman ps -a -f "name=^$name$" --format '{{.Names}}') == "$name" ]]; then
-        sudo podman run -d \
+        podman run -d \
             --name $name \
             -e POSTGRES_PASSWORD=postgres \
             -e PGDATA=/var/lib/postgresql/data/pgdata \
@@ -10,7 +10,7 @@ function dbUp(){
             -v $name:/var/lib/postgresql/data \
             postgres
     else
-        sudo podman start $name
+        podman start $name
     fi
 }
 
@@ -26,13 +26,13 @@ function dbClean(){
     name='vivobd'
 
     if [[ $(sudo podman ps -a -f "name=^$name$" --format '{{.Names}}') == "$name" ]]; then
-        sudo podman rmi -f $name
-        sudo podman volume rm $name
+        podman rmi -f $name
+        podman volume rm $name
     fi
 }
 
 function juspark(){
-    PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS=notebook pyspark
+    PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS=notebook pyspark "$@"
 }
 
 function pushsync() {

@@ -10,7 +10,10 @@ source "$sourceDir/aliases.zsh"
 source "$sourceDir/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$sourceDir/history.zsh"
 source "$sourceDir/functions.zsh"
-source /opt/asdf-vm/asdf.sh
+source "$sourceDir/dotnet-core-config.zsh"
+source "$sourceDir/asdf.zsh"
+
+fpath=($sourceDir/completion $fpath)
 
 autoload -Uz age
 autoload -Uz zargs
