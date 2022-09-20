@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-sourceDir=$(dirname $0)
+local sourceDir=$(dirname $0)
 export EDITOR=vim
 
 # Configs
@@ -13,7 +13,11 @@ source "$sourceDir/functions.zsh"
 source "$sourceDir/dotnet-core-config.zsh"
 source "$sourceDir/asdf.zsh"
 
-fpath=($sourceDir/completion $fpath)
+fpath=($sourceDir/completions $fpath)
+autoload -Uz compinit
+compinit
+
+unset sourceDir
 
 autoload -Uz age
 autoload -Uz zargs

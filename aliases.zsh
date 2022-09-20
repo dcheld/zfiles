@@ -6,7 +6,7 @@ alias ll='exa --icons -alF'
 alias la='exa --icons -la'
 
 # Podman
-alias docker='podman'
+alias docker='nerdctl'
 
 # Git
 alias g=git
