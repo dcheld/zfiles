@@ -12,6 +12,7 @@ source "$sourceDir/history.zsh"
 source "$sourceDir/functions.zsh"
 source "$sourceDir/dotnet-core-config.zsh"
 source "$sourceDir/asdf.zsh"
+source "$sourceDir/fbash.zsh"
 
 fpath=($sourceDir/completions $fpath)
 autoload -Uz compinit
