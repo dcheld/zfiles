@@ -5,10 +5,12 @@ export EDITOR=vim
 
 # Configs
 source "$sourceDir/powerlevel10k/powerlevel10k.zsh-theme"
+source "$sourceDir/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$sourceDir/zsh-z/zsh-z.plugin.zsh"
+
 source "$sourceDir/key-bindings.zsh"
 source "$sourceDir/completion.zsh"
 source "$sourceDir/aliases.zsh"
-source "$sourceDir/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$sourceDir/history.zsh"
 source "$sourceDir/functions.zsh"
 source "$sourceDir/dotnet-core-config.zsh"
