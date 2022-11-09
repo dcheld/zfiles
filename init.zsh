@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -o pipefail
+
 local sourceDir=$(dirname $0)
 export EDITOR=vim
 
