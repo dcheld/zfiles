@@ -1,16 +1,17 @@
-# Created by newuser for 5.9
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+#!/usr/bin/env zsh
+
+set -o pipefail
+
+local sourceDir=$(dirname $0)
+export EDITOR=vim
+
+
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 
 ## Custom scripts
-zinit ice id-as'bash_alias'
-zinit snippet 'https://gist.githubusercontent.com/dcheld/7693d1f6d7669e39b59d62d74590e9c7/raw/2dd9d0ec5c63f4bf678e2b5b647dedda081db333/.bash_alias'
-
-zinit ice id-as'func'
-zinit snippet 'https://gist.githubusercontent.com/dcheld/28a6332c8eea9bdb0bf34c7ecf079fb2/raw/9548363f3c2bd381f7c116afe827e7bbed054d75/functions.sh'
+source "$sourceDir/aliases.zsh"
+source "$sourceDir/functions.zsh"
 
 ## OZH
 zinit for \
@@ -48,21 +49,21 @@ if [[ -d $HOME/.dotnet ]]; then
 fi
 
 ## bat
-local bat_folder='bat-v0.22.1-x86_64-unknown-linux-musl'
-zinit ice as"command" from"gh-r" \
-    atclone"ln -s $bat_folder/bat bat;
-            ln -s $bat_folder/bat.1 bat.1;
-            ln -s $bat_folder/autocomplete/bat.zsh _bat"
-zinit light sharkdp/bat
-unset bat_folder
+zinit ice as"program" from"gh-r" \
+    atclone"cp -f **/bat $ZPFX/bin/bat;
+            cp -f **/bat.1 $ZPFX/man/man1/bat.1;
+            cp -f **/autocomplete/bat.zsh _bat" \
+    atpull'%atclone'
+zinit light @sharkdp/bat
 
-## exa 
-zinit ice as"command" from"gh-r" \
-    atclone"ln -s bin/exa exa;
-            ln -s man/exa.1 exa.1;
-            ln -s man/exa_colors.5 exa_colors.5;
-            ln -s completions/exa.zsh _exa"
-zinit light ogham/exa
+## exa
+zinit ice as"program" from"gh-r" \
+    atclone"cp -f bin/exa $ZPFX/bin/exa;
+            cp -f man/exa.1 $ZPFX/man/man1/exa.1;
+            cp -f man/exa_colors.5 $ZPFX/man/man5/exa_colors.5;
+            cp -f completions/exa.zsh _exa" \
+    atpull'%atclone'
+zinit light @ogham/exa
 
 autoload -Uz compinit
 compinit;
