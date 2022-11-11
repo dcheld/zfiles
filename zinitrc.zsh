@@ -5,13 +5,15 @@ set -o pipefail
 local sourceDir=$(dirname $0)
 export EDITOR=vim
 
+## Custom scripts
+source "$sourceDir/aliases.sh"
+source "$sourceDir/functions.sh"
+
+unset sourceDir
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 
-## Custom scripts
-source "$sourceDir/aliases.zsh"
-source "$sourceDir/functions.zsh"
 
 ## OZH
 zinit for \
