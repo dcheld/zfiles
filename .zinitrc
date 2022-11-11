@@ -1,0 +1,68 @@
+# Created by newuser for 5.9
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+source "${ZINIT_HOME}/zinit.zsh"
+
+## Custom scripts
+zinit ice id-as'bash_alias'
+zinit snippet 'https://gist.githubusercontent.com/dcheld/7693d1f6d7669e39b59d62d74590e9c7/raw/2dd9d0ec5c63f4bf678e2b5b647dedda081db333/.bash_alias'
+
+zinit ice id-as'func'
+zinit snippet 'https://gist.githubusercontent.com/dcheld/28a6332c8eea9bdb0bf34c7ecf079fb2/raw/9548363f3c2bd381f7c116afe827e7bbed054d75/functions.sh'
+
+## OZH
+zinit for \
+    OMZL::key-bindings.zsh \
+    OMZL::history.zsh \
+    OMZL::completion.zsh
+
+zinit wait'1' lucid for \
+    OMZP::z
+
+#PowerLevel10K
+zinit ice depth=1
+zinit light romkatv/powerlevel10k
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+## Plugins
+zinit ice wait depth'1' lucid atload'_zsh_autosuggest_start'
+zinit light zsh-users/zsh-autosuggestions
+
+zinit ice depth'1' lucid
+zinit light zsh-users/zsh-completions
+
+zinit ice wait='1' depth=1 lucid
+zinit light asdf-vm/asdf
+
+## Dotnet
+zinit ice lucid wait'1' as"program" \
+    cp"src/dotnet-install.sh -> dotnet-install" \
+    pick"dotnet-install"
+zinit light dotnet/install-scripts
+
+if [[ -d $HOME/.dotnet ]]; then
+    export DOTNET_ROOT="$HOME/.dotnet"
+    export PATH="$DOTNET_ROOT:$PATH"
+fi
+
+## bat
+local bat_folder='bat-v0.22.1-x86_64-unknown-linux-musl'
+zinit ice as"command" from"gh-r" \
+    atclone"ln -s $bat_folder/bat bat;
+            ln -s $bat_folder/bat.1 bat.1;
+            ln -s $bat_folder/autocomplete/bat.zsh _bat"
+zinit light sharkdp/bat
+unset bat_folder
+
+## exa 
+zinit ice as"command" from"gh-r" \
+    atclone"ln -s bin/exa exa;
+            ln -s man/exa.1 exa.1;
+            ln -s man/exa_colors.5 exa_colors.5;
+            ln -s completions/exa.zsh _exa"
+zinit light ogham/exa
+
+autoload -Uz compinit
+compinit;
