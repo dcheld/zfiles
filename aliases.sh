@@ -6,8 +6,9 @@ alias cat='bat'
 alias ls='exa --icons'
 alias ll='exa --icons -alF'
 alias la='exa --icons -la'
+alias bd='batdiff'
 
-# Podman
+# Containerd
 alias docker='nerdctl'
 
 # Git
@@ -27,5 +28,3 @@ alias branches='git branch -a'
 alias tag='git tag'
 alias up='git up'
 alias sync='git sync'
-
-alias srcd='cd /mnt/c/Users/douglas.held/Source/Repos/'

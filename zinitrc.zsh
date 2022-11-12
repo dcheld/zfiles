@@ -11,7 +11,11 @@ source "$sourceDir/functions.sh"
 
 unset sourceDir
 
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+if [[ -d "/usr/share/zinit" ]]; then
+    ZINIT_HOME="/usr/share/zinit/zinit.git"
+else
+    ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 

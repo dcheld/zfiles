@@ -1,36 +1,3 @@
-function dbUp(){
-    name='vivobd'
-
-    if [[ ! $(sudo podman ps -a -f "name=^$name$" --format '{{.Names}}') == "$name" ]]; then
-        podman run -d \
-            --name $name \
-            -e POSTGRES_PASSWORD=postgres \
-            -e PGDATA=/var/lib/postgresql/data/pgdata \
-            -p 5432:5432 \
-            -v $name:/var/lib/postgresql/data \
-            postgres
-    else
-        podman start $name
-    fi
-}
-
-function dbDown(){
-    name='vivobd'
-
-    if [[ $(sudo podman ps -a -f "name=^$name$" --format '{{.Names}}') == "$name" ]]; then
-        sudo podman stop $name
-    fi
-}
-
-function dbClean(){
-    name='vivobd'
-
-    if [[ $(sudo podman ps -a -f "name=^$name$" --format '{{.Names}}') == "$name" ]]; then
-        podman rmi -f $name
-        podman volume rm $name
-    fi
-}
-
 function juspark(){
     PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS=notebook pyspark "$@"
 }
@@ -51,4 +18,8 @@ function add {
     else
         git add -A :/
     fi
+}
+
+batdiff() {
+    git diff --name-only --relative --diff-filter=d | xargs bat --diff
 }
