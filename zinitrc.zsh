@@ -39,6 +39,7 @@ zinit light-mode wait lucid depth'1' light-mode for \
     zdharma-continuum/zinit-annex-bin-gem-node \
         atinit"zicompinit; zicdreplay" \
     zdharma-continuum/fast-syntax-highlighting \
+        wait'1' \
     @asdf-vm/asdf
 
 ## Dotnet
