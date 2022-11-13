@@ -9,7 +9,6 @@ export EDITOR=vim
 source "$sourceDir/aliases.sh"
 source "$sourceDir/functions.sh"
 
-unset sourceDir
 
 if [[ -d "/usr/share/zinit" ]]; then
     ZINIT_HOME="/usr/share/zinit/zinit.git"
@@ -21,6 +20,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 ## OZH
 zinit lucid for \
     OMZL::key-bindings.zsh \
+        atload'source $sourceDir/history.sh' \
     OMZL::history.zsh \
     OMZL::completion.zsh \
         wait'1' \
@@ -68,5 +68,6 @@ zinit light-mode as"program" from"gh-r" for \
         atpull'%atclone' \
      @ogham/exa
 
+unset sourceDir
 autoload -Uz compinit
 compinit;
