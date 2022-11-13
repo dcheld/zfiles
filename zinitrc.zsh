@@ -37,6 +37,8 @@ zinit light-mode wait lucid depth'1' light-mode for \
     zsh-users/zsh-autosuggestions \
     zsh-users/zsh-completions \
     zdharma-continuum/zinit-annex-bin-gem-node \
+        atinit"zicompinit; zicdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
     @asdf-vm/asdf
 
 ## Dotnet
