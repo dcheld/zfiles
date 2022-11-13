@@ -18,58 +18,52 @@ else
 fi
 source "${ZINIT_HOME}/zinit.zsh"
 
-
 ## OZH
-zinit for \
+zinit lucid for \
     OMZL::key-bindings.zsh \
     OMZL::history.zsh \
-    OMZL::completion.zsh
-
-zinit wait'1' lucid for \
+    OMZL::completion.zsh \
+        wait'1' \
     OMZP::z
 
 #PowerLevel10K
-zinit ice depth=1
-zinit light romkatv/powerlevel10k
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+zinit light-mode depth=1 for \
+        atload'[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' \
+    romkatv/powerlevel10k
 
 ## Plugins
-zinit ice wait depth'1' lucid atload'_zsh_autosuggest_start'
-zinit light zsh-users/zsh-autosuggestions
-
-zinit ice depth'1' lucid
-zinit light zsh-users/zsh-completions
-
-zinit ice wait='1' depth=1 lucid
-zinit light asdf-vm/asdf
+zinit light-mode wait lucid depth'1' light-mode for \
+       atload'_zsh_autosuggest_start' \
+    zsh-users/zsh-autosuggestions \
+    zsh-users/zsh-completions \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    @asdf-vm/asdf
 
 ## Dotnet
-zinit ice lucid wait'1' as"program" \
-    cp"src/dotnet-install.sh -> dotnet-install" \
-    pick"dotnet-install"
-zinit light dotnet/install-scripts
+zinit light-mode wait'1' lucid as"program" for \
+        cp"src/dotnet-install.sh -> dotnet-install" \
+        pick"dotnet-install" \
+        atload'
+            if [[ -d $HOME/.dotnet ]]; then
+                export DOTNET_ROOT="$HOME/.dotnet"
+                export PATH="$DOTNET_ROOT:$PATH"
+            fi' \
+    dotnet/install-scripts
 
-if [[ -d $HOME/.dotnet ]]; then
-    export DOTNET_ROOT="$HOME/.dotnet"
-    export PATH="$DOTNET_ROOT:$PATH"
-fi
 
-## bat
-zinit ice as"program" from"gh-r" \
-    atclone"cp -f **/bat $ZPFX/bin/bat;
-            cp -f **/bat.1 $ZPFX/man/man1/bat.1;
-            cp -f **/autocomplete/bat.zsh _bat" \
-    atpull'%atclone'
-zinit light @sharkdp/bat
-
-## exa
-zinit ice as"program" from"gh-r" \
-    atclone"cp -f bin/exa $ZPFX/bin/exa;
-            cp -f man/exa.1 $ZPFX/man/man1/exa.1;
-            cp -f man/exa_colors.5 $ZPFX/man/man5/exa_colors.5;
-            cp -f completions/exa.zsh _exa" \
-    atpull'%atclone'
-zinit light @ogham/exa
+## Commands
+zinit light-mode as"program" from"gh-r" for \
+        atclone"cp -f **/bat $ZPFX/bin/bat;
+                cp -f **/bat.1 $ZPFX/man/man1/bat.1;
+                cp -f **/autocomplete/bat.zsh _bat" \
+        atpull'%atclone' \
+    @sharkdp/bat \
+        atclone"cp -f bin/exa $ZPFX/bin/exa;
+                cp -f man/exa.1 $ZPFX/man/man1/exa.1;
+                cp -f man/exa_colors.5 $ZPFX/man/man5/exa_colors.5;
+                cp -f completions/exa.zsh _exa" \
+        atpull'%atclone' \
+     @ogham/exa
 
 autoload -Uz compinit
 compinit;
