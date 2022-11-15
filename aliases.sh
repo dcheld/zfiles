@@ -4,8 +4,8 @@ alias '...'='cd ../..'
 alias '....'='cd ../../..'
 alias cat='bat'
 alias ls='exa --icons'
-alias ll='exa --icons -alF'
-alias la='exa --icons -la'
+alias ll='exa --icons -lagF'
+alias la='exa --icons -lag'
 alias bd='batdiff'
 
 # Containerd
