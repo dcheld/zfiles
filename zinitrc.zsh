@@ -36,20 +36,19 @@ zinit light-mode depth=1 for \
     romkatv/powerlevel10k
 
 ## Plugins
-zinit light-mode wait lucid depth'1' light-mode for \
+zinit light zdharma-continuum/zinit-annex-bin-gem-node
+zinit light-mode wait lucid depth'1' for \
        atload'_zsh_autosuggest_start' \
     zsh-users/zsh-autosuggestions \
     zsh-users/zsh-completions \
-    zdharma-continuum/zinit-annex-bin-gem-node \
         atinit"zicompinit; zicdreplay" \
     zdharma-continuum/fast-syntax-highlighting \
         wait'1' \
     @asdf-vm/asdf
 
 ## Dotnet
-zinit light-mode wait'1' lucid as"program" for \
-        cp"src/dotnet-install.sh -> dotnet-install" \
-        pick"dotnet-install" \
+zinit light-mode wait'1' lucid as"null" for \
+        sbin"src/dotnet-install.sh -> dotnet-install" \
         atload'
             if [[ -d $HOME/.dotnet ]]; then
                 export DOTNET_ROOT="$HOME/.dotnet"
@@ -59,18 +58,20 @@ zinit light-mode wait'1' lucid as"program" for \
 
 
 ## Commands
-zinit light-mode as"program" from"gh-r" for \
-        atclone"cp -f **/bat $ZPFX/bin/bat;
-                cp -f **/bat.1 $ZPFX/man/man1/bat.1;
-                cp -f **/autocomplete/bat.zsh _bat" \
+zinit light-mode wait'1' lucid from"gh-r" as"null" for \
+        atclone"cp -f **/bat.1 $ZPFX/man/man1/bat.1;
+                cp -f **/autocomplete/bat.zsh _bat;echo aa" \
         atpull'%atclone' \
+        sbin"**/bat" \
+        id-as"bat" \
     @sharkdp/bat \
-        atclone"cp -f bin/exa $ZPFX/bin/exa;
-                cp -f man/exa.1 $ZPFX/man/man1/exa.1;
+        atclone"cp -f man/exa.1 $ZPFX/man/man1/exa.1;
                 cp -f man/exa_colors.5 $ZPFX/man/man5/exa_colors.5;
                 cp -f completions/exa.zsh _exa" \
         atpull'%atclone' \
-     @ogham/exa
+        sbin"bin/exa" \
+        id-as"exa" \
+    ogham/exa
 
 unset sourceDir
 autoload -Uz compinit
