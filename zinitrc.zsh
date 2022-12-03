@@ -18,7 +18,7 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 ## OZH
-zinit lucid for \
+zinit light-mode lucid for \
     OMZL::key-bindings.zsh \
         atload'source $sourceDir/history.sh' \
     OMZL::history.zsh \
@@ -47,14 +47,17 @@ zinit light-mode wait lucid depth'1' for \
     @asdf-vm/asdf
 
 ## Dotnet
-zinit light-mode wait'1' lucid as"null" for \
+zinit light-mode wait'1' lucid for \
+        as"null" \
         sbin"src/dotnet-install.sh -> dotnet-install" \
         atload'
             if [[ -d $HOME/.dotnet ]]; then
                 export DOTNET_ROOT="$HOME/.dotnet"
                 export PATH="$DOTNET_ROOT:$PATH"
             fi' \
-    dotnet/install-scripts
+    dotnet/install-scripts \
+        has'dotnet' \
+    memark/zsh-dotnet-completion
 
 
 ## Commands
