@@ -9,7 +9,6 @@ export EDITOR=vim
 source "$sourceDir/aliases.sh"
 source "$sourceDir/functions.sh"
 
-
 if [[ -d "/usr/share/zinit" ]]; then
     ZINIT_HOME="/usr/share/zinit/zinit.git"
 else
@@ -50,11 +49,6 @@ zinit light-mode wait lucid depth'1' for \
 zinit light-mode wait'1' lucid for \
         as"null" \
         sbin"src/dotnet-install.sh -> dotnet-install" \
-        atload'
-            if [[ -d $HOME/.dotnet ]]; then
-                export DOTNET_ROOT="$HOME/.dotnet"
-                export PATH="$DOTNET_ROOT:$PATH"
-            fi' \
     dotnet/install-scripts \
         has'dotnet' \
     memark/zsh-dotnet-completion
