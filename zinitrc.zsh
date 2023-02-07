@@ -56,7 +56,7 @@ zinit light-mode wait lucid for \
 
 ## Commands
 zinit light-mode wait lucid from"gh-r" as"null" for \
-        atclone"cp -f **/bat.1 $zpfx/man/man1/bat.1;
+        atclone"cp -f **/bat.1 $ZPFX/man/man1/bat.1;
                 cp -f **/autocomplete/bat.zsh _bat" \
         atpull'%atclone' \
         atload"alias cat='bat';
@@ -64,12 +64,12 @@ zinit light-mode wait lucid from"gh-r" as"null" for \
         sbin"**/bat" \
         id-as"bat" \
     @sharkdp/bat \
-        atclone"cp -f man/exa.1 $zpfx/man/man1/exa.1;
-                cp -f man/exa_colors.5 $zpfx/man/man5/exa_colors.5;
+        atclone"cp -f man/exa.1 $ZPFX/man/man1/exa.1;
+                cp -f man/exa_colors.5 $ZPFX/man/man5/exa_colors.5;
                 cp -f completions/exa.zsh _exa" \
         atpull'%atclone' \
         atload"alias ls='exa --icons';
-               alias ll='exa --icons -lagf';
+               alias ll='exa --icons -lagF';
                alias la='exa --icons -lag';" \
         sbin"bin/exa" \
         id-as"exa" \
