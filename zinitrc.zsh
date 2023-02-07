@@ -26,11 +26,13 @@ zinit light-mode lucid for \
     OMZP::z
 
 #PowerLevel10K
-#Instant prompt
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 zinit light-mode depth=1 for \
+        atinit'
+            #Instant prompt
+            if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+              source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+            fi
+        ' \
         atload'[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' \
     romkatv/powerlevel10k
 
@@ -39,6 +41,7 @@ zinit light zdharma-continuum/zinit-annex-bin-gem-node
 zinit light-mode wait lucid depth'1' for \
        atload'_zsh_autosuggest_start' \
     zsh-users/zsh-autosuggestions \
+       blockf atpull'zinit creinstall -q .' \
     zsh-users/zsh-completions \
         atinit"zicompinit; zicdreplay" \
     zdharma-continuum/fast-syntax-highlighting \
