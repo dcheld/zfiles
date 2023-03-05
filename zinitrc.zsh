@@ -58,25 +58,35 @@ zinit light-mode wait lucid for \
 
 
 ## Commands
-zinit light-mode wait lucid from"gh-r" as"null" for \
-        atclone"cp -f **/bat.1 $ZPFX/man/man1/bat.1;
-                cp -f **/autocomplete/bat.zsh _bat" \
+zinit light-mode wait lucid from"gh-r" as"null" completions for \
+        atclone"cp -f **/bat.1 $ZPFX/man/man1/bat.1" \
         atpull'%atclone' \
         atload"alias cat='bat';
                alias bd='batdiff';" \
+        cp"**/autocomplete/bat.zsh -> _bat" \
         sbin"**/bat" \
         id-as"bat" \
     @sharkdp/bat \
         atclone"cp -f man/exa.1 $ZPFX/man/man1/exa.1;
-                cp -f man/exa_colors.5 $ZPFX/man/man5/exa_colors.5;
-                cp -f completions/exa.zsh _exa" \
+                cp -f man/exa_colors.5 $ZPFX/man/man5/exa_colors.5;" \
         atpull'%atclone' \
         atload"alias ls='exa --icons';
                alias ll='exa --icons -lagF';
                alias la='exa --icons -lag';" \
+        cp"completions/exa.zsh -> _exa" \
         sbin"bin/exa" \
         id-as"exa" \
-    ogham/exa
+    ogham/exa \
+        nocompletions \
+        sbin"fzf" \
+        id-as"fzf" \
+    junegunn/fzf-bin \
+        atclone"cp -f **/fd.1 $ZPFX/man/man1/fd.1;" \
+        atpull'%atclone' \
+        cp"**/autocomplete/_fd -> _fd" \
+        sbin"**/fd" \
+        id-as"fd" \
+    @sharkdp/fd
 
 unset sourceDir
 autoload -Uz compinit
