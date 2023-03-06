@@ -34,13 +34,9 @@ zinit light-mode depth=1 for \
 
 ## Plugins
 zinit light zdharma-continuum/zinit-annex-bin-gem-node
-zinit light-mode wait lucid depth'1' for \
-        atload'_zsh_autosuggest_start' \
-    zsh-users/zsh-autosuggestions \
-        blockf atpull'zinit creinstall -q .' \
+zinit light-mode lucid depth'1' for \
+       blockf atpull'zinit creinstall -q .' \
     zsh-users/zsh-completions \
-        atload"zicompinit; zicdreplay" \
-    zdharma-continuum/fast-syntax-highlighting \
         wait'1' \
     @asdf-vm/asdf
 
