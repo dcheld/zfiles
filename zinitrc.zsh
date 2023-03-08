@@ -9,11 +9,7 @@ export EDITOR=vim
 source "$sourceDir/aliases.sh"
 source "$sourceDir/functions.sh"
 
-if [[ -d "/usr/share/zinit" ]]; then
-    ZINIT_HOME="/usr/share/zinit/zinit.git"
-else
-    ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-fi
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 
 ## OZH
