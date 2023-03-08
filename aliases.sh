@@ -3,9 +3,6 @@ alias '..'='cd ..'
 alias '...'='cd ../..'
 alias '....'='cd ../../..'
 
-# Containerd
-alias docker='nerdctl'
-
 # Git
 alias g=git
 alias st='git status'
