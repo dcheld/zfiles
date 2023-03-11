@@ -46,7 +46,7 @@ zinit light-mode wait lucid depth'1' for \
 
 ## Dotnet
 zinit light-mode wait lucid for \
-        as"null" \
+        as"null" reset \
         sbin"src/dotnet-install.sh -> dotnet-install" \
     dotnet/install-scripts \
         has'dotnet' \
