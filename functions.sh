@@ -31,3 +31,9 @@ ziup() {
         git -C "${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git" pull
     fi
 }
+
+function keychain-init() {
+    keychain --nogui $HOME/.ssh/id_rsa
+    keychain --nogui $HOME/.ssh/dheld_id_rsa
+    source $HOME/.keychain/$HOSTNAME-sh
+}
