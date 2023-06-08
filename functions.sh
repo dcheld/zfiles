@@ -23,11 +23,3 @@ add() {
 batdiff() {
     git diff --name-only --relative --diff-filter=d | xargs bat --diff
 }
-
-ziup() {
-    if [[ -d "/usr/share/zinit" ]]; then
-        sudo git -C "/usr/share/zinit/zinit.git" pull
-    elif [[ -d "${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git" ]]; then
-        git -C "${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git" pull
-    fi
-}
