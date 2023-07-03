@@ -9,7 +9,7 @@ pushsync() {
 }
 
 emd5sum() {
-    echo -n $@ | md5sum | awk '{print $1}' | xargs echo
+    echo -n $@ | md5sum | awk '{print $1}'
 }
 
 add() {
