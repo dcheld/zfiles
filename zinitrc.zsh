@@ -18,7 +18,6 @@ zinit light-mode lucid for \
         atload'source $sourceDir/history.sh' \
     OMZL::history.zsh \
     OMZL::completion.zsh \
-        wait \
     OMZP::z
 
 #PowerLevel10K
@@ -45,7 +44,7 @@ zinit light-mode wait lucid for \
         as"null" reset \
         sbin"src/dotnet-install.sh -> dotnet-install" \
     dotnet/install-scripts \
-        has'dotnet' \
+        if"[[ -f "$HOME/.dotnet/dotnet" ]]" \
     memark/zsh-dotnet-completion
 
 ## Azure
