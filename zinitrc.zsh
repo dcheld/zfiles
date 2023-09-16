@@ -53,7 +53,7 @@ zinit light-mode wait lucid as"null" blockf for \
     https://github.com/Azure/azure-cli/blob/dev/az.completion
 
 ## Commands
-zinit light-mode wait lucid from"gh-r" as"null" completions for \
+zinit light-mode lucid from"gh-r" as"null" completions for \
         atclone"cp -f **/bat.1 $ZPFX/man/man1/bat.1" \
         atpull'%atclone' \
         atload"alias cat='bat';
@@ -62,16 +62,16 @@ zinit light-mode wait lucid from"gh-r" as"null" completions for \
         sbin"**/bat" \
         id-as"bat" \
     @sharkdp/bat \
-        atclone"cp -f man/exa.1 $ZPFX/man/man1/exa.1;
-                cp -f man/exa_colors.5 $ZPFX/man/man5/exa_colors.5;" \
-        atpull'%atclone' \
-        atload"alias ls='exa --icons';
-               alias ll='exa --icons -lagF';
-               alias la='exa --icons -lag';" \
-        cp"completions/exa.zsh -> _exa" \
-        sbin"bin/exa" \
-        id-as"exa" \
-    ogham/exa \
+        atload"alias ls='eza --icons';
+               alias ll='eza --icons -lagF';
+               alias la='eza --icons -lag';" \
+        sbin"eza" \
+        id-as"eza" \
+    eza-community/eza \
+        as"completion" \
+        id-as"eza-completion" \
+        mv"eza-completion -> _eza" \
+    "https://raw.githubusercontent.com/eza-community/eza/main/completions/zsh/_eza" \
         nocompletions \
         sbin"fzf" \
         id-as"fzf" \
