@@ -23,3 +23,7 @@ alias sync='git sync'
 
 #Zinit
 alias zinit-clean="rm -rf ""$HOME/.local/share/zinit/{completions,plugins,polaris,services,snippets}"""
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
