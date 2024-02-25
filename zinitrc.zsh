@@ -66,6 +66,12 @@ zinit light-mode lucid from"gh-r" as"null" completions for \
         sbin"**/bat" \
         id-as"bat" \
     @sharkdp/bat \
+        atclone"cp -f **/man/* $ZPFX/man/man1/" \
+        atpull'%atclone' \
+        atload"alias man='batman';" \
+        sbin"**/bin/*" \
+        id-as"bat-extras" \
+    @eth-p/bat-extras \
         atload"alias ls='eza --icons';
                alias ll='eza --icons -lagF';
                alias la='eza --icons -lag';" \
