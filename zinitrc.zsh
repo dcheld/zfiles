@@ -33,14 +33,14 @@ zinit light-mode depth=1 for \
 
 ## Plugins
 zinit light zdharma-continuum/zinit-annex-bin-gem-node
-zinit light-mode wait lucid depth'1' for \
+zinit light-mode depth'1' for \
         atload'_zsh_autosuggest_start' \
     zsh-users/zsh-autosuggestions \
         blockf atpull'zinit creinstall -q .' \
     zsh-users/zsh-completions \
         atload"zicompinit; zicdreplay" \
     zdharma-continuum/fast-syntax-highlighting \
-        wait'1' \
+         wait lucid \
     @asdf-vm/asdf
 
 ## Dotnet
@@ -53,11 +53,13 @@ zinit light-mode wait lucid for \
 
 ## Azure
 zinit light-mode wait lucid as"null" blockf for \
-        pick'az.completion' atload"zicompinit; zicdreplay;" has"az" \
+        pick'az.completion' \
+        atload"zicompinit; zicdreplay;" \
+        has"az" \
     https://github.com/Azure/azure-cli/blob/dev/az.completion
 
 ## Commands
-zinit light-mode lucid from"gh-r" as"null" completions for \
+zinit light-mode wait lucid from"gh-r" as"null" completions for \
         atclone"cp -f **/bat.1 $ZPFX/man/man1/bat.1" \
         atpull'%atclone' \
         atload"alias cat='bat';
