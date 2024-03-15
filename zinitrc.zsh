@@ -44,11 +44,11 @@ zinit light-mode depth'1' for \
     @asdf-vm/asdf
 
 ## Dotnet
-zinit light-mode wait lucid for \
+zinit light-mode depth'1' wait lucid for \
         as"null" reset \
         sbin"src/dotnet-install.sh -> dotnet-install" \
     dotnet/install-scripts \
-        if"[[ -f "$HOME/.dotnet/dotnet" ]]" \
+        if'[[ -f "$HOME/.dotnet/dotnet" ]]' \
     memark/zsh-dotnet-completion
 
 ## Azure
@@ -56,7 +56,7 @@ zinit light-mode wait lucid as"null" blockf for \
         pick'az.completion' \
         atload"zicompinit; zicdreplay;" \
         has"az" \
-    https://github.com/Azure/azure-cli/blob/dev/az.completion
+    "https://github.com/Azure/azure-cli/blob/dev/az.completion"
 
 ## Commands
 zinit light-mode wait lucid from"gh-r" as"null" completions for \
