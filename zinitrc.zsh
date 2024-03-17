@@ -18,7 +18,9 @@ zinit light-mode lucid for \
         atload'source $sourceDir/history.sh' \
     OMZL::history.zsh \
     OMZL::completion.zsh \
-    OMZP::z
+    OMZP::z \
+        has'aws' \
+    OMZP::aws
 
 #PowerLevel10K
 zinit light-mode depth=1 for \
