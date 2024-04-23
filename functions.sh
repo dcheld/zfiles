@@ -3,9 +3,9 @@ juspark(){
 }
 
 pushsync() {
-    remote="${1:-origin}"
+    remote="${upstream:-origin}"
     branch=$(git rev-parse --abbrev-ref HEAD)
-    git push --set-upstream $remote $branch
+    git push --set-upstream $@ $remote $branch
 }
 
 emd5sum() {
