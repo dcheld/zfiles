@@ -3,9 +3,20 @@
 set -o pipefail
 
 local sourceDir=$(dirname $0)
-export EDITOR=vim
 
 ## Custom scripts
+export EDITOR=vim
+export PATH
+FPATH="$sourceDir/locals/completions/:${FPATH}"
+
+for filename in $(find $sourceDir/locals/scripts/ \
+    -type f \
+    ! -name .gitkeep \
+    -name '*.*')
+do
+    source "$filename"
+done
+
 source "$sourceDir/aliases.sh"
 source "$sourceDir/functions.sh"
 
