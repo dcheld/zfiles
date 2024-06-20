@@ -100,7 +100,7 @@ zinit light-mode wait lucid from"gh-r" as"null" completions for \
         nocompletions \
         sbin"fzf" \
         id-as"fzf" \
-    junegunn/fzf-bin \
+    junegunn/fzf \
         atclone"cp -f **/fd.1 $ZPFX/man/man1/fd.1;" \
         atpull'%atclone' \
         cp"**/autocomplete/_fd -> _fd" \
