@@ -87,9 +87,9 @@ zinit light-mode wait lucid from"gh-r" as"null" completions for \
         sbin"**/bin/*" \
         id-as"bat-extras" \
     @eth-p/bat-extras \
-        atload"alias ls='eza --icons';
-               alias ll='eza --icons -lagF';
-               alias la='eza --icons -lag';" \
+        atload"alias ls='eza --icons=auto';
+               alias ll='eza --icons=auto -lagF';
+               alias la='eza --icons=auto -lag';" \
         sbin"eza" \
         id-as"eza" \
     eza-community/eza \
