@@ -11,6 +11,10 @@ FPATH="$sourceDir/locals/completions/:${FPATH}"
 
 source "$sourceDir/aliases.sh"
 source "$sourceDir/functions.sh"
+#PowerLevel10K-Instant prompt
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
@@ -21,38 +25,37 @@ zinit light-mode lucid for \
         atload'source $sourceDir/history.sh' \
     OMZL::history.zsh \
     OMZL::completion.zsh \
+      wait \
     OMZP::z \
-        has'aws' \
+      wait'1' has'aws' \
     OMZP::aws
 
 #PowerLevel10K
 zinit light-mode depth=1 for \
-        atinit'
-            #Instant prompt
-            if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-              source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-            fi
-        ' \
         atload'[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' \
     romkatv/powerlevel10k
 
 ## Plugins
 zinit light zdharma-continuum/zinit-annex-bin-gem-node
-zinit light-mode depth'1' for \
+zinit light-mode depth'1' lucid for \
         atload'_zsh_autosuggest_start' \
     zsh-users/zsh-autosuggestions \
+        wait \
         blockf atpull'zinit creinstall -q .' \
     zsh-users/zsh-completions \
+        wait \
         atload"zicompinit; zicdreplay" \
     zdharma-continuum/fast-syntax-highlighting \
-         wait lucid \
+        wait'1' \
     @asdf-vm/asdf
 
 ## Dotnet
-zinit light-mode depth'1' wait lucid for \
+zinit light-mode depth'1' lucid for \
+        wait'2' \
         as"null" reset \
         sbin"src/dotnet-install.sh -> dotnet-install" \
     dotnet/install-scripts \
+        wait'1' \
         if'[[ -f "$HOME/.dotnet/dotnet" ]]' \
     memark/zsh-dotnet-completion
 
@@ -63,8 +66,9 @@ zinit light-mode wait lucid as"null" blockf for \
         has"az" \
     "https://github.com/Azure/azure-cli/blob/dev/az.completion"
 
-## Commands
-zinit light-mode wait lucid from"gh-r" as"null" completions for \
+## Commands 
+zinit light-mode lucid from"gh-r" as"null" completions for \
+        wait'1' \
         atclone"cp -f **/bat.1 $ZPFX/man/man1/bat.1" \
         atpull'%atclone' \
         atload"alias cat='bat';
@@ -73,6 +77,7 @@ zinit light-mode wait lucid from"gh-r" as"null" completions for \
         sbin"**/bat" \
         id-as"bat" \
     @sharkdp/bat \
+        wait'1' \
         atclone"cp -f **/man/* $ZPFX/man/man1/" \
         atpull'%atclone' \
         atload"alias man='batman';" \
@@ -85,22 +90,25 @@ zinit light-mode wait lucid from"gh-r" as"null" completions for \
         sbin"eza" \
         id-as"eza" \
     eza-community/eza \
+        wait'2' \
         as"completion" \
         id-as"eza-completion" \
         mv"eza-completion -> _eza" \
     "https://raw.githubusercontent.com/eza-community/eza/main/completions/zsh/_eza" \
+        wait'2' \
         nocompletions \
         sbin"fzf" \
         id-as"fzf" \
-    junegunn/fzf \
-        atclone"cp -f **/fd.1 $ZPFX/man/man1/fd.1;" \
-        atpull'%atclone' \
-        cp"**/autocomplete/_fd -> _fd" \
-        sbin"**/fd" \
-        id-as"fd" \
-    @sharkdp/fd
+      junegunn/fzf \
+          wait'2' \
+          atclone"cp -f **/fd.1 $ZPFX/man/man1/fd.1;" \
+          atpull'%atclone' \
+          cp"**/autocomplete/_fd -> _fd" \
+          sbin"**/fd" \
+          id-as"fd" \
+      @sharkdp/fd
 
-# Read local scripts
+# # Read local scripts
 for filename in $(find $sourceDir/locals/scripts/ \
     -type f \
     ! -name .gitkeep \
