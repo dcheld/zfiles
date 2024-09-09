@@ -27,8 +27,6 @@ zinit light-mode lucid for \
     OMZL::completion.zsh \
       wait \
     OMZP::z \
-      wait'1' has'aws' \
-    OMZP::aws
 
 #PowerLevel10K
 zinit light-mode depth=1 for \

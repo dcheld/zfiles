@@ -20,6 +20,7 @@ alias branches='git branch -a'
 alias tag='git tag'
 alias up='git up'
 alias sync='git sync'
+alias gitroot='cd $(git rev-parse --show-toplevel)'
 
 #Zinit
 alias zinit-clean="rm -rf ""$HOME/.local/share/zinit/{completions,plugins,polaris,services,snippets}"""
