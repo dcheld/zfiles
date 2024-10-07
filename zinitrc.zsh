@@ -36,6 +36,7 @@ zinit light-mode depth=1 for \
 ## Plugins
 zinit light zdharma-continuum/zinit-annex-bin-gem-node
 zinit light-mode depth'1' lucid for \
+        wait \
         atload'_zsh_autosuggest_start' \
     zsh-users/zsh-autosuggestions \
         wait \
@@ -48,12 +49,10 @@ zinit light-mode depth'1' lucid for \
     @asdf-vm/asdf
 
 ## Dotnet
-zinit light-mode depth'1' lucid for \
-        wait'2' \
+zinit light-mode depth'1' for \
         as"null" reset \
         sbin"src/dotnet-install.sh -> dotnet-install" \
     dotnet/install-scripts \
-        wait'1' \
         if'[[ -f "$HOME/.dotnet/dotnet" ]]' \
     memark/zsh-dotnet-completion
 
@@ -66,7 +65,6 @@ zinit light-mode wait lucid as"null" blockf for \
 
 ## Commands 
 zinit light-mode lucid from"gh-r" as"null" completions for \
-        wait'1' \
         atclone"cp -f **/bat.1 $ZPFX/man/man1/bat.1" \
         atpull'%atclone' \
         atload"alias cat='bat';
@@ -75,7 +73,6 @@ zinit light-mode lucid from"gh-r" as"null" completions for \
         sbin"**/bat" \
         id-as"bat" \
     @sharkdp/bat \
-        wait'1' \
         atclone"cp -f **/man/* $ZPFX/man/man1/" \
         atpull'%atclone' \
         atload"alias man='batman';" \
@@ -88,23 +85,20 @@ zinit light-mode lucid from"gh-r" as"null" completions for \
         sbin"eza" \
         id-as"eza" \
     eza-community/eza \
-        wait'2' \
         as"completion" \
         id-as"eza-completion" \
         mv"eza-completion -> _eza" \
     "https://raw.githubusercontent.com/eza-community/eza/main/completions/zsh/_eza" \
-        wait'2' \
         nocompletions \
         sbin"fzf" \
         id-as"fzf" \
-      junegunn/fzf \
-          wait'2' \
-          atclone"cp -f **/fd.1 $ZPFX/man/man1/fd.1;" \
-          atpull'%atclone' \
-          cp"**/autocomplete/_fd -> _fd" \
-          sbin"**/fd" \
-          id-as"fd" \
-      @sharkdp/fd
+    junegunn/fzf \
+        atclone"cp -f **/fd.1 $ZPFX/man/man1/fd.1;" \
+        atpull'%atclone' \
+        cp"**/autocomplete/_fd -> _fd" \
+        sbin"**/fd" \
+        id-as"fd" \
+    @sharkdp/fd
 
 # # Read local scripts
 for filename in $(find $sourceDir/locals/scripts/ \
