@@ -2,6 +2,7 @@ alias _='sudo -E'
 alias '..'='cd ..'
 alias '...'='cd ../..'
 alias '....'='cd ../../..'
+alias la='ls -la'
 
 # Git
 alias g=git

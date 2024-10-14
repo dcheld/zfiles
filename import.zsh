@@ -7,7 +7,9 @@ sourceDir=$(dirname $0)
 ## Custom scripts
 export EDITOR=vim
 export PATH
-FPATH="$sourceDir/locals/completions:${FPATH}"
+
+typeset -aU fpath;
+fpath=("$sourceDir/locals/completions" $fpath)
 
 source "$sourceDir/aliases.sh"
 source "$sourceDir/functions.sh"
@@ -39,6 +41,10 @@ __load-local() {
 
 __end() {
     unset sourceDir
+    unset -f __bengin
+    unset -f __load
+    unset -f __load-local
+
     autoload -Uz compinit
     compinit
 }
