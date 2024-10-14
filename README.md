@@ -28,6 +28,8 @@ __bengin;
         "fd"
 
         "distrobox.completions"
+        
+        "pacman-contrib"
     );
 
     __load "${plugins[@]}";
