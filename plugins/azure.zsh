@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 
+# needs OMZL::completion.zsh -  autoload -U +X bashcompinit && bashcompinit
 ## Azure
 zinit light-mode wait lucid as"null" blockf for \
         pick'az.completion' \
