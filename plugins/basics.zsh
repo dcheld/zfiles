@@ -2,6 +2,6 @@
 
 zinit light-mode for \
     OMZL::key-bindings.zsh \
-        atload'source $sourceDir/history.sh' \
+        atload"source $sourceDir/plugins/basics.history.atload.sh" \
     OMZL::history.zsh \
     OMZL::completion.zsh
