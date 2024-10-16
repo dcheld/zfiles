@@ -2,7 +2,8 @@
 
 # needs OMZL::completion.zsh -  autoload -U +X bashcompinit && bashcompinit
 ## Azure
-zinit light-mode wait lucid as"null" blockf for \
+zinit light-mode lucid as"null" blockf for \
+        wait \
         pick'az.completion' \
         atload"zicompinit; zicdreplay;" \
         has"az" \
