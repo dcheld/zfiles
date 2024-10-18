@@ -16,6 +16,7 @@ __bengin;
         "fast-syntax-highlighting"
         "zsh-completions"
         "z"
+        "zoxide"
 
         "dotnet"
         "asdf"
