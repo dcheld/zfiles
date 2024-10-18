@@ -19,6 +19,7 @@ __bengin;
         "zoxide"
 
         "dotnet"
+        "create-dotnet-devcert"
         "asdf"
         "azure"
 
