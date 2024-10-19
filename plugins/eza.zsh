@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-zinit light-mode lucid from"gh-r" as"null" completions for \
+zinit light-mode lucid from"gh-r" completions for \
         wait \
         atload"alias ls='eza --icons=auto';
                alias ll='eza --icons=auto -lagF';
