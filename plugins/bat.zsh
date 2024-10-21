@@ -6,6 +6,6 @@ zinit light-mode lucid from"gh-r" completions for \
         atpull'%atclone' \
         atload"alias cat='bat'" \
         cp"**/autocomplete/bat.zsh -> _bat" \
-        sbin"**/bat" \
+        lbin"**/bat" \
         id-as"bat" \
     @sharkdp/bat

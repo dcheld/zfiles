@@ -7,7 +7,7 @@ zinit light-mode from"gh-r" as"command" completions for \
             ./zoxide init zsh --cmd cd > zoxide_init.zsh; \
         " \
         atpull'%atclone' \
-        sbin"zoxide" \
+        lbin"zoxide" \
         src"zoxide_init.zsh" \
         id-as"zoxide" \
     @ajeetdsouza/zoxide

@@ -5,7 +5,7 @@ zinit light-mode lucid from"gh-r" completions for \
         atload"alias ls='eza --icons=auto';
                alias ll='eza --icons=auto -lagF';
                alias la='eza --icons=auto -lag';" \
-        sbin"eza" \
+        lbin"eza" \
         id-as"eza" \
     eza-community/eza \
         wait \

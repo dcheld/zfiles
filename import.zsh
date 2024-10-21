@@ -18,7 +18,9 @@ __bengin() {
     ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git";
     source "${ZINIT_HOME}/zinit.zsh";
 
-    zinit light zdharma-continuum/zinit-annex-bin-gem-node;
+    zinit light-mode for \
+        zdharma-continuum/zinit-annex-bin-gem-node \
+        zdharma-continuum/zinit-annex-binary-symlink;
 }
 
 __load(){

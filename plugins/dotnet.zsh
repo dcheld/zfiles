@@ -4,7 +4,7 @@
 zinit light-mode depth'1' lucid for \
         wait \
         as"null" \
-        sbin"src/dotnet-install.sh -> dotnet-install" \
+        lbin"src/dotnet-install.sh -> dotnet-install" \
     dotnet/install-scripts \
         wait \
         if'[[ -f "$HOME/.dotnet/dotnet" ]]' \

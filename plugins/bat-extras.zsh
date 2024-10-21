@@ -5,6 +5,6 @@ zinit light-mode lucid from"gh-r" completions for \
         atclone"cp -f **/man/* $ZPFX/man/man1/" \
         atpull'%atclone' \
         atload"alias man='batman';" \
-        sbin"**/bin/*" \
+        lbin"**/bin/*" \
         id-as"bat-extras" \
     @eth-p/bat-extras
