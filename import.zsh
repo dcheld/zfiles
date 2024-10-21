@@ -15,16 +15,16 @@ source "$sourceDir/aliases.sh"
 source "$sourceDir/functions.sh"
 
 __bengin() {
-    ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-    source "${ZINIT_HOME}/zinit.zsh"
+    ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git";
+    source "${ZINIT_HOME}/zinit.zsh";
 
-    zinit light zdharma-continuum/zinit-annex-bin-gem-node
+    zinit light zdharma-continuum/zinit-annex-bin-gem-node;
 }
 
 __load(){
-    local plugin
-    for plugin in "$@"; do
-        source "$sourceDir/plugins/$plugin.zsh"
+    local plugin;
+    for plugin in "${plugins[@]}"; do
+        source "$sourceDir/plugins/$plugin.zsh";
     done
 }
 
@@ -35,16 +35,17 @@ __load-local() {
         ! -name .gitkeep \
         -name '*.*')
     do
-        source "$filename"
+        source "$filename";
     done
 }
 
 __end() {
-    unset sourceDir
-    unset -f __bengin
-    unset -f __load
-    unset -f __load-local
+    unset sourceDir;
+    unset plugins;
+    unset -f __bengin;
+    unset -f __load;
+    unset -f __load-local;
 
-    autoload -Uz compinit
-    compinit
+    autoload -Uz compinit;
+    compinit;
 }
