@@ -9,7 +9,7 @@ export EDITOR=vim
 export PATH
 
 typeset -aU fpath;
-fpath=("$sourceDir/locals/completions" $fpath)
+fpath=("$sourceDir/completions" $fpath)
 
 source "$sourceDir/aliases.sh"
 source "$sourceDir/functions.sh"
@@ -32,7 +32,7 @@ __load(){
 
 __load-local() {
     # Read local scripts
-    for filename in $(find $sourceDir/locals/scripts/ \
+    for filename in $(find $sourceDir/local-scripts/ \
         -type f \
         ! -name .gitkeep \
         -name '*.*')
