@@ -9,7 +9,10 @@ __bengin;
 
     typeset -aU plugins;
     local plugins=(
+        # themes
         "p10k"
+        "agnoster.theme"
+
         "basics"
 
         "zsh-autosuggestions"
@@ -34,7 +37,7 @@ __bengin;
         "pacman-contrib"
     );
 
-    __load "${plugins[@]}";
+    __load;
     __load-local;
 __end;
 ```

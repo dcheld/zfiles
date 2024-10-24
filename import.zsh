@@ -25,8 +25,12 @@ __bengin() {
 
 __load(){
     local plugin;
-    for plugin in "${plugins[@]}"; do
+    typeset -i i=1
+
+    while (( i <= ${#plugins[@]} )); do
+        plugin=${plugins[i]}
         source "$sourceDir/plugins/$plugin.zsh";
+        ((i++))
     done
 }
 
