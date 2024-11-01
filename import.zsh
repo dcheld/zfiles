@@ -20,7 +20,8 @@ __bengin() {
 
     zinit light-mode for \
         zdharma-continuum/zinit-annex-bin-gem-node \
-        zdharma-continuum/zinit-annex-binary-symlink;
+        zdharma-continuum/zinit-annex-binary-symlink \
+        zdharma-continuum/zinit-annex-patch-dl;
 }
 
 __load(){
