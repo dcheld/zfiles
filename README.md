@@ -36,6 +36,7 @@ __bengin;
         # themes
         "p10k"
         "agnoster.theme"
+        "oh-my-posh"
     );
 
     __load;

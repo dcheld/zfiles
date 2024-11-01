@@ -6,9 +6,8 @@ zinit light-mode for \
         mv"atuin*/atuin -> atuin" \
         sbin"atuin" \
         atclone"
-            ./atuin init zsh > init.zsh; 
+            ./atuin init zsh --disable-up-arrow > init.zsh; 
             ./atuin gen-completions --shell zsh > _atuin" \
         atpull"%atclone" \
         src"init.zsh" \
-        as-id"atuin" \
-    atuinsh/atuin
+    @atuinsh/atuin
