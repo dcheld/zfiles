@@ -9,12 +9,9 @@ __bengin;
 
     typeset -aU plugins;
     local plugins=(
-        # themes
-        "p10k"
-        "agnoster.theme"
-
         "basics"
 
+        "atuin"
         "zsh-autosuggestions"
         "fast-syntax-highlighting"
         "zsh-completions"
@@ -35,6 +32,10 @@ __bengin;
         "distrobox.completions"
         
         "pacman-contrib"
+
+        # themes
+        "p10k"
+        "agnoster.theme"
     );
 
     __load;
