@@ -29,8 +29,8 @@ __load(){
     typeset -i i=1
 
     while (( i <= ${#plugins[@]} )); do
-        plugin=${plugins[i]}
-        source "$sourceDir/plugins/$plugin.zsh";
+        plugin=(${=plugins[i]})
+        source "$sourceDir/plugins/${plugin[1]}.zsh" "${plugin[@]:1}";
         ((i++))
     done
 }
