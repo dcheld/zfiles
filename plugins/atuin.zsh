@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 zinit light-mode for \
-        as"command" from"gh-r" \
+        from"gh-r" \
         bpick"atuin-*.tar.gz" \
         mv"atuin*/atuin -> atuin" \
         sbin"atuin" \
