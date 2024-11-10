@@ -4,7 +4,7 @@ zinit light-mode for \
         from"gh-r" \
         bpick"atuin-*.tar.gz" \
         mv"atuin*/atuin -> atuin" \
-        sbin"atuin" \
+        lbin"atuin" \
         atclone"
             ./atuin init zsh --disable-up-arrow > init.zsh; 
             ./atuin gen-completions --shell zsh > _atuin" \
