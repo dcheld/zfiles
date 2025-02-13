@@ -30,25 +30,17 @@ __bengin;
         "fd"
 
         "distrobox.completions"
-        
+
         "pacman-contrib"
 
         # themes
         "p10k"
         "agnoster.theme"
-        "oh-my-posh"
+        "oh-my-posh jandedobbeleer"
+        "starship gruvbox-rainbow"
     );
 
     __load;
     __load-local;
 __end;
-```
-
-### Instant prompt `p10k`
-
-```zsh
-#PowerLevel10K-Instant prompt
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 ```
