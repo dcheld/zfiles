@@ -24,7 +24,7 @@ alias sync='git sync'
 alias gitroot='cd "$(git rev-parse --show-toplevel)"'
 
 #Zinit
-alias zinit-clean="rm -rf ""$HOME/.local/share/zinit/{completions,plugins,polaris,services,snippets}"""
+alias zinit-clean="rm -rf \"$HOME\"/.local/share/zinit/{completions,plugins,polaris,services,snippets}"
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
