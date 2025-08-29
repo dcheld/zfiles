@@ -8,7 +8,7 @@ zinit light-mode lucid from"gh-r" for \
         atpull"%atclone" \
         atinit"
             if [[ ! -f themes/${OH_MY_POSH_THEME} ]]; then
-                rm -rf themes/* > /dev/null 2>&1;
+                [[ -e themes/* ]] && rm -rf themes/*;
                 oh-my-posh init zsh --config ${OH_MY_POSH_THEME} > init.zsh \
                     && touch themes/${OH_MY_POSH_THEME};
             fi" \
