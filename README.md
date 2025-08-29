@@ -28,6 +28,7 @@ __bengin;
         "bat-extras"
         "eza"
         "fd"
+        "ripgrep"
         "topgrade"
 
         "distrobox.completions"
