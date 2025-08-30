@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-zinit light-mode for \
+zinit light-mode lucid for wait \
         from"gh-r" \
         bpick"atuin-*.tar.gz" \
         mv"atuin*/atuin -> atuin" \
