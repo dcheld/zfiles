@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
 zinit light-mode depth'1' lucid for \
-        wait \
-        blockf atpull'zinit creinstall -q .' \
+        wait blockf \
+        atload"zicompinit; zicdreplay" \
     zsh-users/zsh-completions

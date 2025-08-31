@@ -54,6 +54,7 @@ __end() {
     unset -f __bengin;
     unset -f __load;
     unset -f __load-local;
+    unset -f __end;
 
     autoload -Uz compinit;
     compinit;
