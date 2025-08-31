@@ -9,37 +9,41 @@ __bengin;
 
     typeset -aU plugins;
     local plugins=(
-        "basics"
+        basics
 
-        "atuin"
-        "zsh-autosuggestions"
-        "fast-syntax-highlighting"
-        "zsh-completions"
-        "z"
-        "zoxide"
+        atuin
+        zsh-autosuggestions
+        fast-syntax-highlighting
+        zsh-completions
+        z
+        zoxide
 
-        "dotnet"
-        "dotnet-devcerts-linux"
-        "asdf"
-        "azure"
+        dotnet
+        dotnet-devcerts-linux
+        asdf
+        azure
 
-        "bat"
-        "fzf"
-        "bat-extras"
-        "eza"
-        "fd"
-        "ripgrep"
-        "topgrade"
+        bat
+        fzf
+        bat-extras
+        eza
+        fd
+        ripgrep
+        topgrade
 
-        "distrobox.completions"
+        distrobox.completions
 
-        "pacman-contrib"
+        pacman-contrib
 
         # themes
-        "p10k"
-        "agnoster.theme"
+        p10k
+        agnoster.theme
         "oh-my-posh jandedobbeleer"
         "starship gruvbox-rainbow"
+
+        #test
+        zunit # depends from resolver
+        revolver 
     );
 
     __load;
