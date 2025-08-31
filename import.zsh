@@ -6,7 +6,7 @@ sourceDir=$(dirname $0)
 
 ## Custom scripts
 export EDITOR=vim
-export PATH
+
 
 typeset -aU fpath;
 fpath=("$sourceDir/completions" $fpath)
@@ -18,6 +18,8 @@ __bengin() {
     ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git";
     source "${ZINIT_HOME}/zinit.zsh";
 
+    typeset -g -aU path;
+    path=("$ZPFX/bin" $path)
     zinit light-mode for \
         zdharma-continuum/zinit-annex-bin-gem-node \
         zdharma-continuum/zinit-annex-binary-symlink \
