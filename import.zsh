@@ -1,18 +1,18 @@
 #!/usr/bin/env zsh
-
 set -o pipefail
 
-sourceDir=$(dirname $0)
+export ZSH_SRC_DIR=$(dirname $0)
+export ZSH_SRC_DIR_CACHE="$HOME/.cache/dotfiles"
 
 ## Custom scripts
 export EDITOR=vim
 
 
 typeset -aU fpath;
-fpath=("$sourceDir/completions" $fpath)
+fpath=("$ZSH_SRC_DIR/completions" $fpath)
 
-source "$sourceDir/aliases.sh"
-source "$sourceDir/functions.sh"
+source "$ZSH_SRC_DIR/aliases.zsh"
+source "$ZSH_SRC_DIR/functions.zsh"
 
 __bengin() {
     ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git";
@@ -32,14 +32,14 @@ __load(){
 
     while (( i <= ${#plugins[@]} )); do
         plugin=(${=plugins[i]})
-        source "$sourceDir/plugins/${plugin[1]}.zsh" "${plugin[@]:1}";
+        source "$ZSH_SRC_DIR/plugins/${plugin[1]}.zsh" "${plugin[@]:1}";
         ((i++))
     done
 }
 
 __load-local() {
     # Read local scripts
-    for filename in $(find $sourceDir/local-scripts/ \
+    for filename in $(find $ZSH_SRC_DIR/local-scripts/ \
         -type f \
         ! -name .gitkeep \
         -name '*.*')
@@ -49,7 +49,6 @@ __load-local() {
 }
 
 __end() {
-    unset sourceDir;
     unset plugins;
     unset -f __bengin;
     unset -f __load;

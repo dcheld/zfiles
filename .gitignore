@@ -1,2 +1,4 @@
 completions/
 local-scripts/
+
+*.zwc
