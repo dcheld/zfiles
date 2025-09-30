@@ -68,3 +68,12 @@ add() {
         git add -A :/
     fi
 }
+
+cdr() {
+  if git rev-parse --show-toplevel >/dev/null 2>&1; then
+    cd "$(git rev-parse --show-toplevel)" || return 1
+  else
+    echo "O diretório atual não é controlado pelo git"
+    return 1
+  fi
+}
