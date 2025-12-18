@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+#Dependents
+plugins+=("bat")
+
 zinit light-mode lucid from"gh-r" completions for \
         wait \
         atclone"cp -f **/man/* $ZPFX/man/man1/" \
