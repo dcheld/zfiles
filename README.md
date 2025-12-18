@@ -20,8 +20,11 @@ __bengin;
 
         dotnet
         dotnet-devcerts-linux
+
+        mise
+        usage-jdx
         asdf
-        azure
+        azure-completion
 
         bat
         fzf
