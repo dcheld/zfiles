@@ -5,6 +5,5 @@
 zinit light-mode lucid as"null" blockf for \
         wait \
         pick'az.completion' \
-        atload"zicompinit; zicdreplay;" \
         has"az" \
     "https://github.com/Azure/azure-cli/blob/dev/az.completion"

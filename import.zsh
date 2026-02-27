@@ -55,6 +55,7 @@ __end() {
     unset -f __load-local;
     unset -f __end;
 
-    autoload -Uz compinit;
-    compinit;
+    zinit lucid wait'0' as'null' for \
+            atload"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+        zdharma-continuum/null
 }
