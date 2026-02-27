@@ -5,7 +5,7 @@
 ```zsh
 source "$HOME/.dotfiles/import.zsh"
 
-__bengin;
+__begin;
 
     typeset -aU plugins;
     local plugins=(

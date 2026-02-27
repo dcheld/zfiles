@@ -14,7 +14,7 @@ fpath=("$ZSH_SRC_DIR/completions" $fpath)
 source "$ZSH_SRC_DIR/aliases.zsh"
 source "$ZSH_SRC_DIR/functions.zsh"
 
-__bengin() {
+__begin() {
     ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git";
     source "${ZINIT_HOME}/zinit.zsh";
 
@@ -50,7 +50,7 @@ __load-local() {
 
 __end() {
     unset plugins;
-    unset -f __bengin;
+    unset -f __begin;
     unset -f __load;
     unset -f __load-local;
     unset -f __end;
