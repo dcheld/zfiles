@@ -17,6 +17,7 @@ __begin;
         zsh-completions
         z
         zoxide
+        rtk
 
         dotnet
         dotnet-devcerts-linux
